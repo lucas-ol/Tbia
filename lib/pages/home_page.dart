@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tbia/pages/world_page.dart';
 import 'package:tbia/services/worlds_api.dart';
 
 import '../injection.dart';
@@ -41,18 +42,13 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Home"),
       ),
       body: Column(children: [
-        ElevatedButton(onPressed: getWolds, child: const Text("Buscar Mundos")),
+        ElevatedButton(
+            onPressed: () => {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => WorldPage())))
+                },
+            child: const Text("Buscar Mundos")),
         Text(mainWolds.playersOnline.toString()),
-        SizedBox(
-          height: 400,
-          child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: mainWolds.regularWorlds.length,
-              itemBuilder: ((_, index) {
-                final world = mainWolds.regularWorlds[index];
-                return Text(world.name);
-              })),
-        )
       ]),
     );
   }
