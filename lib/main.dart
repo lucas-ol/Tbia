@@ -1,25 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tbia/pages/home_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-import 'injection.dart';
+import 'app/app_module.dart';
+import 'app/app_widget.dart';
 
-void main() {
-  getServices();
-  runApp(const TbiaApp());
-}
-
-class TbiaApp extends StatelessWidget {
-  const TbiaApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(),
-    );
-  }
-}
+void main() =>
+    runApp(ModularApp(module: AppModule(), child: const AppWidget()));
