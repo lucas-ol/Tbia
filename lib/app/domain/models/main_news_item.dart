@@ -1,7 +1,7 @@
 class MainNewsItem {
   String category = "";
 
-  String date = "";
+  DateTime date = DateTime.now();
 
   int id = 0;
 
@@ -23,7 +23,7 @@ class MainNewsItem {
   MainNewsItem.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     category = json['category'];
-    date = json['date'];
+    date = DateTime.parse(json['date']);
     id = json['id'];
     news = json['news'];
     type = json['type'];

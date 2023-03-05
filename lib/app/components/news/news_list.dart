@@ -13,7 +13,9 @@ class NewsList extends StatelessWidget {
       itemCount: items.length,
       itemBuilder: (BuildContext _, int index) {
         final news = items[index];
-        return NewsItemList(news: news);
+        return Container(
+            margin: const EdgeInsets.only(top: 10),
+            child: NewsItemList(news: news));
       },
     );
   }
